@@ -119,7 +119,6 @@ def get_token_hash(token: str) -> str:
 
 def store_refresh_token(db: Session, token: str, user_id: int, expires_at: datetime):
     token_hash = get_token_hash(token)
-    # Ensure expires_at is timezone-aware
     if expires_at.tzinfo is None:
         expires_at = expires_at.replace(tzinfo=timezone.utc)
     refresh_token = RefreshToken(
