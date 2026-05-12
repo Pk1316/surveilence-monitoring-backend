@@ -143,7 +143,7 @@ def is_refresh_token_valid(db: Session, token: str) -> bool:
         
         expires_at = expires_at.replace(tzinfo=timezone.utc)
     current_time = datetime.now(timezone.utc)
-    if bool(expires_at < current_time):
+    if(bool(expires_at <current_time)):
         return False
     return True
 

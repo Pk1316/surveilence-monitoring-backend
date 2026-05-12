@@ -153,7 +153,7 @@ def logout(
     if access_token:
         token_data = safe_verify_token(access_token)
         user = get_user_from_token_payload(db, token_data) if token_data else None
-        revoke_access_token(db, access_token, user.id if user else None)
+        revoke_access_token(db, access_token, )
 
     response.delete_cookie("refresh_token", path="/")
     return {"detail": "Logged out"}
